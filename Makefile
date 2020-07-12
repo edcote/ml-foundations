@@ -1,9 +1,11 @@
 .PHONY: venv
 venv:
-	(virtualenv venv; \
-source venv/bin/activate; \
-python -m pip install -U pip; \
-python -m pip install -r requirements.txt)
+	(virtualenv --python=python2 venv; \
+. $(PWD)/venv/bin/activate; \
+which python; \
+which pip; \
+pip install -U pip; \
+pip install -r requirements.txt)
 
 .PHONY: clean
 clean:
